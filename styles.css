@@ -1,0 +1,315 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Custom Color Classes */
+.bg-sky-50 {
+    background-color: #f0f9ff;
+}
+
+.text-sky-600 {
+    color: #092b3b;
+}
+
+.border-sky-200 {
+    border-color: #bae6fd;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #084360;
+    color: white;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0369a1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(8, 67, 96, 0.3);
+}
+
+/* Product Card Animations */
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Zoom Effect for Images */
+.zoom-on-hover {
+    overflow: hidden;
+}
+
+.zoom-on-hover img {
+    transition: transform 0.3s ease;
+}
+
+.zoom-on-hover:hover img {
+    transform: scale(1.05);
+}
+
+/* Category Card Hover Effects */
+.category-card {
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+select,
+textarea {
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    ring: 2px solid #0ea5e9;
+    border-color: #0ea5e9;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+    backdrop-filter: blur(4px);
+}
+
+/* Favorite Button Animation */
+.favorite-btn {
+    transition: all 0.2s ease;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-btn.active svg {
+    fill: currentColor;
+    color: #dc2626;
+}
+
+/* Navigation Styles */
+header {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.mobile-menu a:hover {
+    background-color: #f9fafb;
+    color: #0ea5e9;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Gradient Backgrounds */
+.gradient-bg {
+    background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+}
+
+/* Loading Animation for Images */
+img {
+    transition: opacity 0.3s ease;
+}
+
+img:not([src]) {
+    opacity: 0;
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+    .product-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .zoom-on-hover:hover img {
+        transform: none;
+    }
+    
+    .category-card:hover {
+        transform: none;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Badge Animations */
+.badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Hero Section Enhancements */
+.hero-text {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stats Counter Animation */
+.stat-number {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Footer Enhancements */
+footer {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+/* Form Validation Styles */
+.form-error {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.form-success {
+    border-color: #10b981;
+    background-color: #f0fdf4;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 2px solid #f3f4f6;
+    border-top: 2px solid #0ea5e9;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Custom CSS for the logo slideshow */
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+.logos {
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+}
+
+.logos-slide {
+    display: inline-block;
+    animation: 35s slide infinite linear;
+}
+
+.logos-slide:hover {
+    animation-play-state: paused;
+}
+
+.logos-slide img {
+    height: 50px;
+    margin: 0 40px;
+    display: inline-block;
+}
+
+/* Base Styles (can be expanded for more custom styles) */
+.btn-primary {
+    @apply bg-sky-600 text-white px-6 py-3 rounded-full font-medium hover:bg-sky-700 transition-colors;
+}
+
+/* Styles for zoom-on-hover effect */
+.zoom-on-hover img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoom-on-hover:hover img {
+    transform: scale(1.05);
+}
