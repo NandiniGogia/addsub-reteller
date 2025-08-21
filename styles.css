@@ -284,6 +284,12 @@ footer {
     white-space: nowrap;
     position: relative;
 }
+.logos img {
+  height: 120px;  /* increase size (default is usually ~60px) */
+  margin: 0 20px; /* add spacing between logos */
+  object-fit: contain;
+}
+
 
 .logos-slide {
     display: inline-block;

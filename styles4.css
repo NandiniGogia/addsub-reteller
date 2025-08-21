@@ -1,0 +1,116 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Custom Color Classes */
+.bg-yellow-50 {
+    background-color: #F5F5F5; /* Highlight */
+}
+
+.text-yellow-600 {
+    color: #3DB2FF; /* Primary */
+}
+
+.text-yellow-700 {
+    color: #1B3B5F; /* Secondary */
+}
+
+.border-yellow-200 {
+    border-color: #3DB2FF; /* Accent border */
+}
+
+.bg-yellow-600 {
+    background-color: #3DB2FF; /* Primary */
+}
+
+.bg-yellow-700 {
+    background-color: #1B3B5F; /* Secondary */
+}
+
+.hover\:bg-yellow-700:hover {
+    background-color: #1B3B5F;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #3DB2FF;
+    color: #FFFFFF;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #1B3B5F;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(27, 59, 95, 0.3);
+}
+
+/* Product Card Animations */
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Zoom Effect for Images */
+.zoom-on-hover {
+    overflow: hidden;
+}
+
+.zoom-on-hover img {
+    transition: transform 0.3s ease;
+}
+
+.zoom-on-hover:hover img {
+    transform: scale(1.05);
+}
+
+/* Category Card Hover Effects */
+.category-card {
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+select,
+textarea {
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    --tw-ring-color: #3DB2FF;
+    border-color: #3DB2FF;
+    box-shadow: 0 0 0 2px var(--tw-ring-color);
+}
+
+/* Navigation Styles */
+header {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
