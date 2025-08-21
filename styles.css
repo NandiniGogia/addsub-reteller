@@ -276,6 +276,10 @@ footer {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }
 }
+.font-handwritten {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 400; /* thin handwritten */
+  }
 
 .logos {
     overflow: hidden;
