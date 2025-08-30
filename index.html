@@ -7,13 +7,118 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the logo slider */
+        .logos {
+            position: relative;
+            overflow: hidden;
+            padding: 3rem 0;
+            background: white;
+            white-space: nowrap;
+        }
+        
+        .logos-slide {
+            display: inline-flex;
+            animation: slide 30s linear infinite;
+        }
+        
+        .logos-slide img {
+            height: 90px;
+            margin: 0 40px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .logos-slide img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        .logos:before,
+        .logos:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .logos:before {
+            left: 0;
+            background: linear-gradient(to left, rgba(255,255,255,0), white);
+        }
+        
+        .logos:after {
+            right: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0), white);
+        }
+        
+        /* Pause animation on hover */
+        .logos:hover .logos-slide {
+            animation-play-state: paused;
+        }
+        
+        /* Handwritten font for hero text */
+        .font-handwritten {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            display: inline-block;
+            background-color: #D97706;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #B45309;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hero text animation */
+        .hero-text {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body class="bg-yellow-50">
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <h1 class="text-2xl font-bold text-yellow-600 flex items-center">
-                    <img src="f304daac-7125-4e68-a32b-7c09768f15db.png" alt="addsub logo" class="h-12 mr-2">
+                <h1 class="text-2xl font-bold text-blue-800 flex items-center">
+                    <a href="#" class="logo">
+                    <!-- <i class="fas fa-glasses"></i> -->
+                    AddSub
+                </a>
                 </h1>
             </div>
             <nav id="mobile-nav" class="hidden md:flex space-x-8">
@@ -48,135 +153,124 @@
     </header>
 
     <section class="relative bg-gradient-to-r from-yellow-50 to-white py-20">
-  <!-- 🎥 Background Video -->
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
-    <source src="1755845261692749.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+        <!-- 🎥 Background Video -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+            <source src="1755845261692749.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-  <!-- Dark overlay for readability -->
-  <div class="absolute inset-0 bg-black/40"></div>
+        <!-- Dark overlay for readability -->
+        <div class="absolute inset-0 bg-black/40"></div>
 
-  <!-- Foreground content -->
-  <<div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
-  <div class="md:w-1/2 mb-10 md:mb-0">
-    <h1 class="text-4xl md:text-5xl mb-6 hero-text font-handwritten text-yellow-600">
-      India's only dedicated Premium Eyewear Platform for Brand
-    </h1>
-    <p class="text-lg text-gray-200 mb-8">
-      Showcase your brand. Reach the right audience. Sell with full transparency.
-    </p>
-        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSebRGzNI666GzK8Pp4hXquOD7zRYRuurN70UWUiIKKCO6cINw/viewform?usp=sf_link"
-             class="btn-primary text-center" target="_blank">
-            Start Selling
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-</div>
+        <!-- Foreground content -->
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-4xl mb-6 hero-text  text-yellow-50">
+                    India's only dedicated Premium Eyewear Platform for Brand
+                </h1>
+                <p class="text-lg text-gray-200 mb-8">
+                    Showcase your brand. Reach the right audience. Sell with full transparency.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSebRGzNI666GzK8Pp4hXquOD7zRYRuurN70UWUiIKKCO6cINw/viewform?usp=sf_link"
+                       class="btn-primary text-center" target="_blank">
+                        Start Selling
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <hr class="my-10 border-gray-200">
 
-   <section class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">Sell by Category</h2>
-    
-    <!-- Force 5 cards in one row on desktop -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-      
-      <!-- Card 1 -->
-      <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
-        <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Sell by Category</h2>
+            
+            <!-- Force 5 cards in one row on desktop -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
+                    <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Spectacles</h3>
+                    <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
+                    <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sunglasses</h3>
+                    <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
+                    <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Lenses</h3>
+                    <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
+                    <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Contact Lenses</h3>
+                    <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
+                    <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Eyewear Accessories</h3>
+                    <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
+                </div>
+            </div>
         </div>
-        <h3 class="text-xl font-semibold mb-2">Spectacles</h3>
-        <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
-      </div>
+    </section>
 
-      <!-- Card 2 -->
-      <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
-        <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+    <hr class="my-10 border-gray-200">
+
+    <!-- Updated Logo Section -->
+    <section class="logos bg-white">
+        <div class="logos-slide">
+            <img src="IMG_0555 (1).png" alt="Brand Logo 1">
+            <img src="IMG_0556.png" alt="Brand Logo 2">
+            <img src="IMG_0555.png" alt="Brand Logo 3">
+            <img src="IMG_0556 (1).png" alt="Brand Logo 4">
+            <img src="IMG_0558 (1).png" alt="Brand Logo 5">
+            <img src="IMG_0558 (1).png" alt="Brand Logo 6">
+            <!-- Duplicate set for seamless looping -->
+            <img src="IMG_0555 (1).png" alt="Brand Logo 1">
+            <img src="IMG_0556.png" alt="Brand Logo 2">
+            <img src="IMG_0555.png" alt="Brand Logo 3">
+            <img src="IMG_0556 (1).png" alt="Brand Logo 4">
+            <img src="IMG_0558 (1).png" alt="Brand Logo 5">
+            <img src="IMG_0558 (1).png" alt="Brand Logo 6">
         </div>
-        <h3 class="text-xl font-semibold mb-2">Sunglasses</h3>
-        <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
-        <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Lenses</h3>
-        <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
-        <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Contact Lenses</h3>
-        <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="category-card bg-yellow-50 rounded-xl p-6 text-center hover:bg-white hover:shadow-lg transition-all">
-        <div class="mb-4 mx-auto w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Eyewear Accessories</h3>
-        <a href="#" class="mt-4 inline-block text-yellow-600 font-medium hover:underline">Browse</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-    
-
-<hr class="my-10 border-gray-200">
-
-<section class="logos bg-white">
-  <div class="logos-slide flex space-x-8">
-    <img src="IMG_0555 (1).png" alt="Brand Logo 1" class="h-24 w-20"> 
-    <img src="IMG_0556.png" alt="Brand Logo 2" class="h-24 w-auto">
-    <img src="IMG_0555.png" alt="Brand Logo 3" class="h-24 w-auto">
-    <img src="IMG_0556 (1).png" alt="Brand Logo 4" class="h-24 w-auto">
-    <img src="IMG_0558 (1).png" alt="Brand Logo 5" class="h-24 w-auto">
-    <img src="IMG_0558 (1).png" alt="Brand Logo 6" class="h-24 w-auto">
-  </div>
-
-  <div class="logos-slide flex space-x-8">
-    <img src="IMG_0558 (1).png" alt="Brand Logo 1" class="h-24 w-auto">
-    <img src="IMG_0558 (1).png" alt="Brand Logo 2" class="h-24 w-auto">
-    <img src="IMG_0558 (1).png" alt="Brand Logo 3" class="h-24 w-auto">
-    <img src="IMG_0555.png" alt="Brand Logo 4" class="h-24 w-auto">
-    <img src="IMG_0555.png" alt="Brand Logo 5" class="h-24 w-auto">
-    <img src="IMG_0555.png" alt="Brand Logo 6" class="h-24 w-auto">
-  </div>
-</section>
-
+    </section>
 
     <hr class="my-10 border-gray-200">
 
@@ -285,85 +379,83 @@
             </form>
         </div>
     </div>
-<section id="about" class="py-16 bg-white">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold mb-6 text-gray-800">About Us</h2>
-    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-       <span class="text-yellow-600 font-semibold">AddSub</span> is India’s first exclusive premium eyewear marketplace that works directly with brands.
-We don’t deal with resellers — only with authentic eyewear labels who want to reach India’s growing luxury-conscious audience.
-
-<p class="text-lg text-gray-600 max-w-3xl mx-auto">
-       <span class="text-yellow-600 font-semibold">Our Mission</span> To solve the problem of India’s unorganised optical market by building a trusted, transparent platform where eyewear brands can:</p>
-        •   Showcase their products authentically </p>
-        •   Maintain brand value & pricing integrity</p>
-        •   Grow sales with complete transparency</p>
-    </p>
-  </div>
-</section>
-
-<hr class="my-10 border-gray-200">
-
-<section id="how-it-works" class="py-16 bg-yellow-50">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">How AddSub Works</h2>
     
-    <!-- 5 Cards in One Row -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
-      
-      <!-- Card 1 -->
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
-          <span class="text-2xl font-bold text-yellow-600">1</span>
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">About Us</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            <span class="text-yellow-600 font-semibold">AddSub</span> is India's first exclusive premium eyewear marketplace that works directly with brands.
+            We don't deal with resellers — only with authentic eyewear labels who want to reach India's growing luxury-conscious audience.
+            </p>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+            <span class="text-yellow-600 font-semibold">Our Mission</span> To solve the problem of India's unorganised optical market by building a trusted, transparent platform where eyewear brands can:
+            </p>
+            <ul class="text-lg text-gray-600 max-w-3xl mx-auto mt-2 list-disc list-inside text-left">
+                <li>Showcase their products authentically</li>
+                <li>Maintain brand value & pricing integrity</li>
+                <li>Grow sales with complete transparency</li>
+            </ul>
         </div>
-        <h3 class="text-xl font-semibold mb-2">Apply to Partner</h3>
-        <p class="text-gray-600">Fill out a simple brand registration form.</p>
-      </div>
+    </section>
 
-      <!-- Card 2 -->
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
-          <span class="text-2xl font-bold text-yellow-600">2</span>
+    <hr class="my-10 border-gray-200">
+
+    <section id="how-it-works" class="py-16 bg-yellow-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">How AddSub Works</h2>
+            
+            <!-- 5 Cards in One Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+                
+                <!-- Card 1 -->
+                <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+                    <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold text-yellow-600">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Apply to Partner</h3>
+                    <p class="text-gray-600">Fill out a simple brand registration form.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+                    <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold text-yellow-600">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Onboarding</h3>
+                    <p class="text-gray-600">Our team verifies and sets up your brand profile.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+                    <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold text-yellow-600">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">List Products</h3>
+                    <p class="text-gray-600">Upload your collections with full control on pricing & stock.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+                    <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold text-yellow-600">4</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sell Seamlessly</h3>
+                    <p class="text-gray-600">We handle customer service, payment processing, and logistics.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+                    <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold text-yellow-600">5</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Grow with AddSub</h3>
+                    <p class="text-gray-600">Access insights, promotions, and features to expand your reach.</p>
+                </div>
+            </div>
         </div>
-        <h3 class="text-xl font-semibold mb-2">Onboarding</h3>
-        <p class="text-gray-600">Our team verifies and sets up your brand profile.</p>
-      </div>
+    </section>
 
-      <!-- Card 3 -->
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
-          <span class="text-2xl font-bold text-yellow-600">3</span>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">List Products</h3>
-        <p class="text-gray-600">Upload your collections with full control on pricing & stock.</p>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
-          <span class="text-2xl font-bold text-yellow-600">4</span>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Sell Seamlessly</h3>
-        <p class="text-gray-600">We handle customer service, payment processing, and logistics.</p>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <div class="mb-4 mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
-          <span class="text-2xl font-bold text-yellow-600">5</span>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Grow with AddSub</h3>
-        <p class="text-gray-600">Access insights, promotions, and features to expand your reach.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-    
-
- <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
                 <h3 class="text-xl font-bold mb-4">addsub</h3>
@@ -391,10 +483,10 @@ We don’t deal with resellers — only with authentic eyewear labels who want t
                 <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.858.07c3.254.15 4.714 1.488 4.858 4.858.058 1.274.07 1.654.07 4.858s-.012 3.584-.07 4.858c-.144 3.254-1.488 4.714-4.858 4.858-1.274.058-1.654.07-4.858.07s-3.584-.012-4.858-.07c-3.254-.144-4.714-1.488-4.858-4.858-.058-1.274-.07-1.654-.07-4.858s.012-3.584.07-4.858c.144-3.254 1.488-4.714 4.858-4.858 1.274-.058 1.654-.07 4.858-.07zm0-2.163c-3.678 0-4.136.015-5.584.081-1.333.062-2.162.333-2.91.688-.748.355-1.378.868-1.996 1.486-.618.618-1.131 1.248-1.486 1.996-.355.748-.626 1.577-.688 2.91-.066 1.448-.081 1.906-.081 5.584s.015 4.136.081 5.584c.062 1.333.333 2.162.688 2.91.355.748.868 1.378 1.486 1.996.618.618 1.248 1.131 1.996 1.486.748.355 1.577.626 2.91.688 1.448.066 1.906.081 5.584.081s4.136-.015 5.584-.081c1.333-.062 2.162-.333 2.91-.688.748-.355 1.378-.868 1.996-1.486.618-.618 1.131-1.248 1.486-1.996.355-.748.626-1.577.688-2.91.066-1.448.081-1.906.081-5.584s-.015-4.136-.081-5.584c-.062-1.333-.333-2.162-.688-2.91-.355-.748-.868-1.378-1.486-1.996-.618-.618-1.248-1.131-1.996-1.486-.748-.355-1.577-.626-2.91-.688-1.448-.066-1.906-.081-5.584-.081z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.858.07c3.254.15 4.714 1.488 4.858 4.858.058 1.274.07 1.654.07 4.858s-.012 3.584-.07 4.858c-.144 3.254-1.488 4.714-4.858 4.858-1.274.058-1.654.07-4.858.07s-3.584-.012-4.858-.07c-3.254-.144-4.714-1.488-4.858-4.858-.058-1.274-.07-1.654-.07-4.858s.012-3.584.07-4.858c.144-3.254 1.488-4.714 4.858-4.858 1.274-.058 1.654-.07 4.858-.07zm0-2.163c-3.678 0-4.136.015-5.584.081-1.333.062-2.162.333-2.910.688-.748.355-1.378.868-1.996 1.486-.618.618-1.131 1.248-1.486 1.996-.355.748-.626 1.577-.688 2.910-.066 1.448-.081 1.906-.081 5.584s.015 4.136.081 5.584c.062 1.333.333 2.162.688 2.910.355.748.868 1.378 1.486 1.996.618.618 1.248 1.131 1.996 1.486.748.355 1.577.626 2.910.688 1.448.066 1.906.081 5.584.081s4.136-.015 5.584-.081c1.333-.062 2.162-.333 2.910-.688.748-.355 1.378-.868 1.996-1.486.618-.618 1.131-1.248 1.486-1.996.355-.748.626-1.577.688-2.910.066-1.448.081-1.906.081-5.584s-.015-4.136-.081-5.584c-.062-1.333-.333-2.162-.688-2.90-.355-.748-.868-1.378-1.486-1.996-.618-.618-1.248-1.131-1.996-1.486-.748-.355-1.577-.626-2.910-.688-1.448-.066-1.906-.081-5.584-.081z"></path></svg>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.258 5.748c-.767.339-1.583.567-2.434.67-.887.31-1.828.465-2.822.465-1.928 0-3.39-1.03-4.086-2.583-.697-1.553-.314-2.883.856-3.834.992-.767 2.05-.724 3.125-.137.946.505 1.636 1.554 1.942 2.766 1.26-1.748 3.13-2.87 5.122-2.87 2.083 0 3.785 1.702 3.785 3.785s-1.702 3.785-3.785 3.785c-1.986 0-3.654-1.564-3.785-3.566-.02-.323-.03-.65-.03-1.015 0-3.042 1.62-5.748 4.793-6.666 0-.001.002-.002.002-.003.018-1.633-.67-2.92-1.787-3.738-1.464-1.066-3.23-1.61-5.11-1.61-2.96 0-5.71 1.34-7.53 3.63-1.83 2.29-2.75 5.28-2.75 8.448s.92 6.158 2.75 8.448c1.82 2.29 4.56 3.63 7.53 3.63 2.87 0 5.52-1.285 7.37-3.41.97-1.12 1.64-2.54 1.92-4.088-.027-.001-.055-.002-.083-.002z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.258 5.748c-.767.339-1.583.567-2.434.67-.887.31-1.828.465-2.822.465-1.928 0-3.39-1.03-4.086-2.583-.697-1.553-.314-2.883.856-3.834.992-.767 2.05-.724 3.125-.137.946.505 1.636 1.554 1.942 2.766 1.26-1.748 3.13-2.87 5.122-2.87 2.083 0 3.785 1.702 3.785 3.785s-1.702 3.785-3.785 3.785c-1.986 0-3.654-1.564-3.785-3.566-.02-.323-.03-.65-.030-1.015 0-3.042 1.62-5.748 4.793-6.666 0-.001.002-.002.002-.003.018-1.633-.67-2.92-1.787-3.738-1.464-1.066-3.23-1.61-5.11-1.61-2.96 0-5.71 1.34-7.53 3.63-1.83 2.29-2.75 5.28-2.75 8.448s.92 6.158 2.75 8.448c1.82 2.29 4.56 3.63 7.53 3.63 2.87 0 5.52-1.285 7.37-3.41.97-1.12 1.64-2.54 1.92-4.088-.027-.001-.055-.002-.083-.002z"></path></svg>
                     </a>
                 </div>
             </div>
@@ -405,5 +497,12 @@ We don’t deal with resellers — only with authentic eyewear labels who want t
     </footer>
 
     <script src="script3.js"></script>
+    <script>
+        // JavaScript to handle the logo slider if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            // You can add any interactive functionality here
+            // For example, pausing the animation on hover is already handled in CSS
+        });
+    </script>
 </body>
 </html>
